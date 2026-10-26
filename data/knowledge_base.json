@@ -1,0 +1,861 @@
+{
+  "metadata": {
+    "title": "Annadata AI Agricultural Knowledge Base",
+    "version": "1.0.0",
+    "created_date": "2026-10-25",
+    "description": "Structured agricultural information for Indian farmers, sourced from ICAR, KVKs, and agricultural universities.",
+    "supported_topics": [
+      "crop_cultivation",
+      "crop_diseases",
+      "pest_management",
+      "irrigation",
+      "fertilizers",
+      "soil_management",
+      "government_schemes"
+    ],
+    "languages": ["en", "hi"],
+    "disclaimer": "This information is for general guidance. Always consult local agricultural experts or KVKs for region-specific recommendations."
+  },
+
+  "crops": [
+    {
+      "id": "crop_001",
+      "name": "Rice",
+      "name_hi": "चावल / धान",
+      "scientific_name": "Oryza sativa",
+      "category": "cereal",
+      "season": ["kharif"],
+      "sowing_months": ["June", "July"],
+      "harvesting_months": ["October", "November"],
+      "major_states": ["West Bengal", "Uttar Pradesh", "Punjab", "Andhra Pradesh", "Tamil Nadu", "Bihar", "Odisha"],
+      "soil_type": "Clayey loam or alluvial soil with good water retention",
+      "soil_ph": "5.5–6.5",
+      "temperature_range_celsius": "20–37",
+      "water_requirement_mm": "1200–1400",
+      "cultivation_practices": {
+        "land_preparation": "Plough the field 2–3 times and puddle with standing water. Level the field to ensure uniform water distribution.",
+        "seed_rate_kg_per_hectare": "20–25 (transplanting), 80–100 (direct seeding)",
+        "seed_treatment": "Treat seeds with Carbendazim 2g/kg or Trichoderma viride 4g/kg of seed before sowing to prevent seed-borne diseases.",
+        "nursery_management": "Raise seedlings in a wet nursery bed. Sow pre-germinated seeds on puddled nursery beds. Transplant 20–25 day old seedlings.",
+        "transplanting": "Transplant 2–3 seedlings per hill at a spacing of 20cm × 15cm. Maintain 2–3 cm standing water after transplanting.",
+        "direct_seeding": "Sow pre-germinated seeds in rows at 20 cm spacing in puddled or unpuddled field."
+      },
+      "fertilizer_recommendations": {
+        "nitrogen_kg_per_hectare": 120,
+        "phosphorus_kg_per_hectare": 60,
+        "potassium_kg_per_hectare": 40,
+        "application_schedule": "Apply full P and K and 1/3 N as basal. Apply 1/3 N at tillering and 1/3 N at panicle initiation.",
+        "micronutrients": "Apply Zinc Sulphate 25 kg/ha as basal in zinc-deficient soils.",
+        "organic_manure": "Apply 10–12 tonnes FYM or compost per hectare before puddling."
+      },
+      "irrigation": {
+        "method": "Flood irrigation / Alternate Wetting and Drying (AWD)",
+        "critical_stages": ["Transplanting", "Tillering", "Panicle initiation", "Flowering", "Grain filling"],
+        "schedule": "Maintain 2–5 cm standing water from transplanting to 2 weeks before harvest. AWD method saves 20–25% water.",
+        "drainage": "Drain water 10–15 days before harvest for uniform maturity."
+      },
+      "diseases": [
+        {
+          "id": "disease_001",
+          "name": "Blast (Rice Blast)",
+          "name_hi": "ब्लास्ट",
+          "causal_organism": "Magnaporthe oryzae (formerly Pyricularia oryzae)",
+          "symptoms": "Diamond-shaped or spindle-shaped spots with grey center and brown margins on leaves. Neck blast causes rotting at the base of the panicle, turning it white (white head). Node blast shows blackening at nodes.",
+          "favorable_conditions": "High humidity (>90%), temperature 25–28°C, excess nitrogen application, cloudy weather, heavy dew.",
+          "management": {
+            "cultural": "Use resistant varieties (Pusa Basmati 1, Samba Mahsuri). Avoid excess nitrogen. Maintain proper spacing. Remove and destroy crop debris.",
+            "chemical": "Spray Tricyclazole 75 WP @ 0.6g/L or Isoprothiolane 40 EC @ 1.5 mL/L at disease initiation. Repeat after 10–15 days if needed.",
+            "biological": "Seed treatment with Pseudomonas fluorescens @ 10g/kg seed."
+          },
+          "sources": ["ICAR-Indian Institute of Rice Research, Hyderabad", "IRRI Rice Knowledge Bank"]
+        },
+        {
+          "id": "disease_002",
+          "name": "Bacterial Leaf Blight (BLB)",
+          "name_hi": "जीवाणु पत्ती झुलसा",
+          "causal_organism": "Xanthomonas oryzae pv. oryzae",
+          "symptoms": "Water-soaked lesions on leaf margins that enlarge and turn yellow to white. Leaves dry up from tip and edges. Milky or opaque ooze on leaf surface in the morning with dew.",
+          "favorable_conditions": "High humidity, temperature 25–34°C, monsoon rains, clipping of leaf tips during transplanting, excess nitrogen.",
+          "management": {
+            "cultural": "Use resistant varieties. Avoid clipping of leaf tips. Balanced nitrogen application. Drain excess water from fields.",
+            "chemical": "Spray Streptomycin Sulphate + Tetracycline (Streptocycline) @ 0.015% (15g per 100L water). Copper oxychloride 0.25% can also help. No highly effective chemical control available.",
+            "biological": "Not well established for BLB."
+          },
+          "sources": ["ICAR-IIRR Hyderabad", "Directorate of Rice Research"]
+        },
+        {
+          "id": "disease_003",
+          "name": "Sheath Blight",
+          "name_hi": "आवरण अंगमारी",
+          "causal_organism": "Rhizoctonia solani",
+          "symptoms": "Oval or irregular greenish-grey lesions with dark brown borders on leaf sheaths near water level. Lesions expand and coalesce, causing drying of leaves. Sclerotia (small brown balls) form on infected tissue.",
+          "favorable_conditions": "Dense planting, high humidity, excess nitrogen, warm temperatures (28–32°C), continuous flooding.",
+          "management": {
+            "cultural": "Wider spacing (25 × 25 cm). Avoid excess nitrogen. Remove sclerotia floating on water.",
+            "chemical": "Spray Hexaconazole 5 EC @ 2 mL/L or Validamycin 3L @ 2 mL/L at disease initiation.",
+            "biological": "Apply Trichoderma harzianum as soil application."
+          },
+          "sources": ["ICAR-IIRR Hyderabad", "TNAU Agritech Portal"]
+        }
+      ],
+      "pests": [
+        {
+          "id": "pest_001",
+          "name": "Brown Plant Hopper (BPH)",
+          "name_hi": "भूरा फुदका",
+          "scientific_name": "Nilaparvata lugens",
+          "damage_symptoms": "Nymphs and adults suck sap from the base of the plant causing yellowing, wilting, and drying of plants in circular patches ('hopperburn'). Honeydew secretion promotes sooty mould. Can transmit grassy stunt and ragged stunt viruses.",
+          "favorable_conditions": "Close planting, excess nitrogen, continuous flooding, no natural enemies.",
+          "management": {
+            "cultural": "Avoid close planting. Use resistant varieties (Swarna, MTU 1010). Drain water periodically. Avoid excess nitrogen.",
+            "chemical": "Spray Pymetrozine 50 WG @ 0.3g/L or Dinotefuran 20 SG @ 0.4g/L. Avoid synthetic pyrethroids which cause resurgence.",
+            "biological": "Conserve natural enemies like mirid bugs, spiders, and Lycosa pseudoannulata."
+          },
+          "economic_threshold": "5–10 hoppers per hill at vegetative stage, 10–15 per hill at reproductive stage.",
+          "sources": ["ICAR-NRRI Cuttack", "CropLife India"]
+        },
+        {
+          "id": "pest_002",
+          "name": "Stem Borer",
+          "name_hi": "तना छेदक",
+          "scientific_name": "Scirpophaga incertulas (Yellow Stem Borer)",
+          "damage_symptoms": "Larvae bore into the stem. In vegetative stage causes 'dead heart' (central shoot dries). In reproductive stage causes 'white ear head' (empty panicles that remain white).",
+          "favorable_conditions": "Continuous rice cropping, stubble retention, high nitrogen, stagnant water.",
+          "management": {
+            "cultural": "Clip leaf tips while transplanting to remove stem borer eggs. Remove and destroy stubbles after harvest. Use light traps for mass trapping adults.",
+            "chemical": "Apply Cartap hydrochloride 4G @ 25 kg/ha in standing water or spray Chlorantraniliprole 18.5 SC @ 0.3 mL/L.",
+            "biological": "Release Trichogramma japonicum egg parasitoids @ 1 lakh per hectare at weekly intervals."
+          },
+          "economic_threshold": "5% dead hearts in vegetative stage or 2% white ear heads.",
+          "sources": ["ICAR-NRRI Cuttack", "TNAU Agritech Portal"]
+        }
+      ],
+      "yield_potential_tonnes_per_hectare": "4–6 (irrigated), 2–3 (rainfed)",
+      "sources": ["ICAR-Indian Institute of Rice Research (IIRR), Hyderabad", "ICAR-National Rice Research Institute (NRRI), Cuttack", "TNAU Agritech Portal", "Directorate of Rice Development, Patna"]
+    },
+
+    {
+      "id": "crop_002",
+      "name": "Wheat",
+      "name_hi": "गेहूँ",
+      "scientific_name": "Triticum aestivum",
+      "category": "cereal",
+      "season": ["rabi"],
+      "sowing_months": ["October", "November", "December"],
+      "harvesting_months": ["March", "April"],
+      "major_states": ["Uttar Pradesh", "Punjab", "Haryana", "Madhya Pradesh", "Rajasthan", "Bihar"],
+      "soil_type": "Well-drained loamy to clay loam soil",
+      "soil_ph": "6.0–7.5",
+      "temperature_range_celsius": "15–25 (optimal), can tolerate 5–35",
+      "water_requirement_mm": "400–500",
+      "cultivation_practices": {
+        "land_preparation": "Plough field 2–3 times with cultivator followed by planking for a fine seed bed. Ensure proper moisture at sowing.",
+        "seed_rate_kg_per_hectare": "100 (timely sown), 125 (late sown)",
+        "seed_treatment": "Treat seeds with Carboxin + Thiram (Vitavax Power) @ 2.5g/kg or Tebuconazole 2DS @ 1.5g/kg to prevent loose smut and other seed-borne diseases.",
+        "sowing_method": "Line sowing with seed drill at 20–22.5 cm row spacing and 5 cm depth. Use Zero-till drill for conservation agriculture.",
+        "timely_vs_late": "Timely sowing: 1st–25th November. Late sowing: after 25th November. Late sown wheat should use short-duration varieties."
+      },
+      "fertilizer_recommendations": {
+        "nitrogen_kg_per_hectare": 120,
+        "phosphorus_kg_per_hectare": 60,
+        "potassium_kg_per_hectare": 40,
+        "application_schedule": "Apply full P, K, and half N at sowing. Apply remaining N in two splits — at first irrigation (21 DAS) and at second irrigation (42 DAS).",
+        "micronutrients": "Apply Zinc Sulphate 25 kg/ha in zinc-deficient soils. Foliar spray of 0.5% Zinc Sulphate at tillering if deficiency symptoms appear.",
+        "organic_manure": "Apply 10 tonnes FYM / hectare 2–3 weeks before sowing."
+      },
+      "irrigation": {
+        "method": "Border strip or sprinkler irrigation",
+        "critical_stages": ["Crown Root Initiation (21 DAS)", "Tillering (40–45 DAS)", "Late Jointing (60–65 DAS)", "Flowering (80–85 DAS)", "Milk stage (100–105 DAS)", "Dough stage (115–120 DAS)"],
+        "schedule": "4–6 irrigations depending on soil and rainfall. If only one irrigation is possible, give at CRI stage. If two, give at CRI and flowering.",
+        "note": "Avoid irrigation at heading stage as it promotes Karnal bunt."
+      },
+      "diseases": [
+        {
+          "id": "disease_004",
+          "name": "Yellow Rust (Stripe Rust)",
+          "name_hi": "पीला रतुआ / धारीदार रतुआ",
+          "causal_organism": "Puccinia striiformis f.sp. tritici",
+          "symptoms": "Yellow-orange pustules arranged in stripes along leaf veins. Entire leaves may turn yellow and dry. Severe infection reduces grain filling.",
+          "favorable_conditions": "Cool temperatures (10–15°C), high humidity, cloudy weather, susceptible varieties.",
+          "management": {
+            "cultural": "Grow resistant varieties (HD 3086, DBW 187, PBW 826). Timely sowing. Avoid late sowing of susceptible varieties.",
+            "chemical": "Spray Propiconazole 25 EC @ 1 mL/L or Tebuconazole 25.9 EC @ 1 mL/L at first appearance. Repeat after 15 days if needed.",
+            "biological": "No effective biological control for rusts."
+          },
+          "sources": ["ICAR-Indian Institute of Wheat and Barley Research (IIWBR), Karnal", "Wheat Crop Health Newsletter"]
+        },
+        {
+          "id": "disease_005",
+          "name": "Karnal Bunt",
+          "name_hi": "करनाल बंट",
+          "causal_organism": "Tilletia indica",
+          "symptoms": "Partial conversion of grain into black powdery spore mass with fishy smell. Only some grains in the ear head are infected. Black powder visible when grain is broken.",
+          "favorable_conditions": "Cool temperatures (18–22°C), high humidity, rain during heading/flowering.",
+          "management": {
+            "cultural": "Grow resistant varieties. Avoid irrigation at heading. Use certified seed. Remove and burn infected ear heads.",
+            "chemical": "Seed treatment with Carboxin + Thiram @ 2.5g/kg. Foliar spray of Propiconazole 25 EC @ 1 mL/L at boot leaf stage.",
+            "biological": "Not well established."
+          },
+          "sources": ["ICAR-IIWBR Karnal", "IARI New Delhi"]
+        }
+      ],
+      "pests": [
+        {
+          "id": "pest_003",
+          "name": "Aphid (Wheat Aphid)",
+          "name_hi": "माहू / चेपा",
+          "scientific_name": "Sitobion avenae, Rhopalosiphum padi",
+          "damage_symptoms": "Nymphs and adults suck sap from leaves, stems, and ear heads. Leaves turn yellow. Honeydew secretion promotes sooty mould. Severe infestation reduces grain weight.",
+          "favorable_conditions": "Warm and humid weather (February–March), late sown crops, excess nitrogen.",
+          "management": {
+            "cultural": "Timely sowing. Balanced fertilization. Conserve natural enemies.",
+            "chemical": "Spray Dimethoate 30 EC @ 1.7 mL/L or Imidacloprid 17.8 SL @ 0.3 mL/L when ETL is reached.",
+            "biological": "Conserve ladybird beetles (Coccinella septempunctata), syrphid flies, and lacewings."
+          },
+          "economic_threshold": "5–10 aphids per ear head.",
+          "sources": ["ICAR-IIWBR Karnal", "Punjab Agricultural University"]
+        },
+        {
+          "id": "pest_004",
+          "name": "Termite",
+          "name_hi": "दीमक",
+          "scientific_name": "Odontotermes obesus",
+          "damage_symptoms": "Feeds on roots and lower stem. Plants dry up in patches. Hollow stems filled with soil.",
+          "favorable_conditions": "Sandy soils, low organic matter, dry conditions, undecomposed FYM.",
+          "management": {
+            "cultural": "Apply well-decomposed FYM. Irrigate at regular intervals. Avoid dry spells.",
+            "chemical": "Seed treatment with Chlorpyrifos 20 EC @ 4 mL/kg seed. Soil application of Chlorpyrifos 20 EC @ 4 L/ha with irrigation.",
+            "biological": "Use Metarhizium anisopliae or Beauveria bassiana as soil application in organic farming."
+          },
+          "sources": ["ICAR-IIWBR Karnal", "CCS Haryana Agricultural University"]
+        }
+      ],
+      "yield_potential_tonnes_per_hectare": "4–6 (irrigated), 2–3 (rainfed)",
+      "sources": ["ICAR-IIWBR Karnal", "IARI New Delhi", "Punjab Agricultural University, Ludhiana", "Directorate of Wheat Development, Ghaziabad"]
+    },
+
+    {
+      "id": "crop_003",
+      "name": "Cotton",
+      "name_hi": "कपास",
+      "scientific_name": "Gossypium hirsutum (American cotton), Gossypium arboreum (Desi cotton)",
+      "category": "fibre",
+      "season": ["kharif"],
+      "sowing_months": ["April", "May", "June"],
+      "harvesting_months": ["October", "November", "December"],
+      "major_states": ["Gujarat", "Maharashtra", "Telangana", "Andhra Pradesh", "Rajasthan", "Madhya Pradesh", "Haryana", "Punjab"],
+      "soil_type": "Black cotton soil (vertisol) or well-drained sandy loam",
+      "soil_ph": "6.0–8.0",
+      "temperature_range_celsius": "25–35",
+      "water_requirement_mm": "700–1200",
+      "cultivation_practices": {
+        "land_preparation": "Deep ploughing in summer followed by 2–3 harrowing. Form ridges and furrows for better drainage.",
+        "seed_rate_kg_per_hectare": "2.5 (Bt hybrid), 10–15 (desi cotton)",
+        "seed_treatment": "Treat seeds with Imidacloprid 70 WS @ 5g/kg for sucking pest protection. Treat with Trichoderma viride @ 10g/kg for soil-borne diseases.",
+        "spacing": "90–120 cm × 45–60 cm depending on variety and soil type.",
+        "sowing_method": "Dibbling method or seed drill. Sow on one side of the ridge at 3–5 cm depth."
+      },
+      "fertilizer_recommendations": {
+        "nitrogen_kg_per_hectare": 120,
+        "phosphorus_kg_per_hectare": 60,
+        "potassium_kg_per_hectare": 60,
+        "application_schedule": "Apply full P, K, and 1/4 N at sowing. Apply remaining N in 3 splits at 30, 60, and 90 days after sowing.",
+        "micronutrients": "Spray MgSO4 1% at flowering if deficiency observed. Apply Borax 10 kg/ha for boron-deficient soils.",
+        "organic_manure": "Apply 10–12 tonnes FYM per hectare before last ploughing."
+      },
+      "irrigation": {
+        "method": "Furrow irrigation or drip irrigation (preferred)",
+        "critical_stages": ["Seedling establishment", "Square formation", "Flowering", "Boll development"],
+        "schedule": "6–8 irrigations depending on soil type and rainfall. Drip irrigation saves 40–50% water and increases yield by 20–30%.",
+        "note": "Avoid waterlogging; cotton is sensitive to excess moisture."
+      },
+      "diseases": [
+        {
+          "id": "disease_006",
+          "name": "Bacterial Blight of Cotton",
+          "name_hi": "जीवाणु अंगमारी",
+          "causal_organism": "Xanthomonas citri pv. malvacearum",
+          "symptoms": "Angular water-soaked spots on leaves that darken to brown/black. Boll rot with discoloured lint. Black arm symptom on stems — elongated black lesions.",
+          "favorable_conditions": "High humidity, rainfall, warm temperatures (25–35°C), susceptible varieties.",
+          "management": {
+            "cultural": "Use resistant varieties. Use disease-free certified seed. Remove crop residues. Rotate with non-host crops.",
+            "chemical": "Seed delinting with concentrated sulphuric acid. Spray Streptocycline 0.01% + Copper oxychloride 0.25%.",
+            "biological": "Seed treatment with Pseudomonas fluorescens @ 10g/kg."
+          },
+          "sources": ["ICAR-Central Institute for Cotton Research (CICR), Nagpur", "Cotton Corporation of India"]
+        }
+      ],
+      "pests": [
+        {
+          "id": "pest_005",
+          "name": "American Bollworm",
+          "name_hi": "अमेरिकन बोलवर्म",
+          "scientific_name": "Helicoverpa armigera",
+          "damage_symptoms": "Larvae bore into squares, flowers, and bolls. Circular bore holes on bolls with frass. Heavy shedding of squares and immature bolls. Major yield-reducing pest.",
+          "favorable_conditions": "Non-Bt cotton, late sowing, continuous cotton monoculture, indiscriminate pesticide use killing natural enemies.",
+          "management": {
+            "cultural": "Grow Bt cotton hybrids (with resistance management). Maintain 20% non-Bt refuge. Use pheromone traps for monitoring. Intercrop with pigeon pea.",
+            "chemical": "For non-Bt cotton: Spray Emamectin benzoate 5 SG @ 0.4g/L or Chlorantraniliprole 18.5 SC @ 0.3 mL/L at ETL.",
+            "biological": "Release Trichogramma chilonis @ 1.5 lakh per hectare. Use HaNPV @ 250 LE/hectare in the evening."
+          },
+          "economic_threshold": "1 larva per plant or 5–10% damaged squares/bolls.",
+          "sources": ["ICAR-CICR Nagpur", "ICAR-NBAIR Bengaluru"]
+        },
+        {
+          "id": "pest_006",
+          "name": "Pink Bollworm",
+          "name_hi": "गुलाबी बोलवर्म",
+          "scientific_name": "Pectinophora gossypiella",
+          "damage_symptoms": "Larvae enter green bolls and feed inside. Interlocular boring — tunnels between boll locules. Rosette flowers (petals fused together). Bolls fail to open properly or produce stained lint.",
+          "favorable_conditions": "Late-season crop, Bt resistance development in some regions, continuous cotton monoculture.",
+          "management": {
+            "cultural": "Early and uniform picking. Destroy crop residues and stubbles immediately after last picking. Do not retain seed from Bt cotton for sowing.",
+            "chemical": "Spray Profenophos 50 EC @ 2 mL/L or Quinalphos 25 EC @ 2 mL/L at ETL.",
+            "biological": "Mass trapping with pheromone traps @ 5/hectare. Mating disruption technique."
+          },
+          "economic_threshold": "8–10 moths per trap per week or 10% damaged bolls.",
+          "sources": ["ICAR-CICR Nagpur", "Maharashtra State Agricultural Extension"]
+        }
+      ],
+      "yield_potential_tonnes_per_hectare": "2–3 (seed cotton, irrigated Bt hybrid), 1–1.5 (rainfed)",
+      "sources": ["ICAR-Central Institute for Cotton Research (CICR), Nagpur", "Cotton Corporation of India", "CottonCorp.gov.in"]
+    },
+
+    {
+      "id": "crop_004",
+      "name": "Tomato",
+      "name_hi": "टमाटर",
+      "scientific_name": "Solanum lycopersicum",
+      "category": "vegetable",
+      "season": ["kharif", "rabi", "summer"],
+      "sowing_months": ["June-July (kharif)", "October-November (rabi)", "January-February (summer)"],
+      "harvesting_months": ["Depends on season — 60–80 days after transplanting"],
+      "major_states": ["Andhra Pradesh", "Madhya Pradesh", "Karnataka", "Gujarat", "Odisha", "West Bengal", "Maharashtra"],
+      "soil_type": "Well-drained sandy loam to clay loam, rich in organic matter",
+      "soil_ph": "6.0–7.0",
+      "temperature_range_celsius": "20–27 (optimal for fruit set)",
+      "water_requirement_mm": "400–600",
+      "cultivation_practices": {
+        "land_preparation": "Plough field 2–3 times. Apply FYM and form raised beds or ridges. Good drainage is essential.",
+        "seed_rate_kg_per_hectare": "0.4–0.5 (hybrid), nursery transplanting",
+        "seed_treatment": "Treat seeds with Thiram @ 3g/kg. Trichoderma viride @ 4g/kg for damping off prevention.",
+        "nursery_management": "Raise seedlings in protrays or raised nursery beds. 4–5 week old seedlings with 4–5 true leaves are transplanted.",
+        "transplanting": "Spacing: 60 cm × 45 cm. Transplant on raised beds in the evening. Apply starter solution of 19:19:19 @ 3g/L.",
+        "staking": "Stake indeterminate varieties with bamboo or nylon strings for better fruit quality and disease reduction."
+      },
+      "fertilizer_recommendations": {
+        "nitrogen_kg_per_hectare": 120,
+        "phosphorus_kg_per_hectare": 80,
+        "potassium_kg_per_hectare": 80,
+        "application_schedule": "Apply full P, half K, and 1/3 N as basal. Apply remaining N and K in 3 splits at 30, 45, and 60 days after transplanting.",
+        "micronutrients": "Spray Calcium Chloride 0.5% at fruit development to prevent blossom end rot. Spray Boron 0.2% at flowering for better fruit set.",
+        "organic_manure": "Apply 20–25 tonnes FYM or compost per hectare."
+      },
+      "irrigation": {
+        "method": "Drip irrigation (preferred) or furrow irrigation",
+        "critical_stages": ["After transplanting", "Flowering", "Fruit development"],
+        "schedule": "Irrigate every 3–5 days in summer, 7–10 days in winter. Drip irrigation @ 2–4 litres per plant per day depending on stage.",
+        "note": "Maintain uniform soil moisture. Irregular watering causes fruit cracking and blossom end rot."
+      },
+      "diseases": [
+        {
+          "id": "disease_007",
+          "name": "Early Blight",
+          "name_hi": "अगेती अंगमारी",
+          "causal_organism": "Alternaria solani",
+          "symptoms": "Dark brown concentric ring spots (target board pattern) on lower leaves first. Leaves turn yellow and drop. Collar rot at seedling stage. Fruit rot near stem end.",
+          "favorable_conditions": "Warm (24–29°C), humid weather. Poorly nourished plants. Heavy fruit load.",
+          "management": {
+            "cultural": "Use resistant/tolerant varieties. Proper spacing. Stake plants. Remove lower infected leaves. Avoid overhead irrigation.",
+            "chemical": "Spray Mancozeb 75 WP @ 2.5g/L or Azoxystrobin 23 SC @ 1 mL/L at disease initiation. Rotate fungicides.",
+            "biological": "Spray Trichoderma-based products as preventive."
+          },
+          "sources": ["ICAR-Indian Institute of Vegetable Research (IIVR), Varanasi", "TNAU Agritech Portal"]
+        },
+        {
+          "id": "disease_008",
+          "name": "Late Blight",
+          "name_hi": "पछेती अंगमारी",
+          "causal_organism": "Phytophthora infestans",
+          "symptoms": "Water-soaked dark greenish-brown patches on leaves, especially at leaf tips and margins. White cottony growth on lower leaf surface in humid conditions. Rapidly spreads, destroying foliage. Firm brown rot on fruits.",
+          "favorable_conditions": "Cool nights (10–15°C), warm days (20–24°C), high humidity, rain, fog.",
+          "management": {
+            "cultural": "Use tolerant varieties. Avoid overhead irrigation. Ensure good air circulation. Destroy volunteer plants and crop debris.",
+            "chemical": "Spray Cymoxanil + Mancozeb (Curzate M8) @ 3g/L or Metalaxyl + Mancozeb (Ridomil Gold) @ 2.5g/L. Preventive sprays in favorable weather.",
+            "biological": "Limited effectiveness against Phytophthora."
+          },
+          "sources": ["ICAR-IIVR Varanasi", "CPRI Shimla (potato late blight applicable to tomato)"]
+        },
+        {
+          "id": "disease_009",
+          "name": "Tomato Leaf Curl Virus (ToLCV)",
+          "name_hi": "पत्ती मोड़ विषाणु",
+          "causal_organism": "Tomato Leaf Curl Virus (Begomovirus), transmitted by whitefly (Bemisia tabaci)",
+          "symptoms": "Upward curling of leaves. Leaves become thick, leathery, and crinkled. Stunted plant growth. Severe flower drop. Little or no fruit production in early infection.",
+          "favorable_conditions": "High whitefly population, warm dry weather, susceptible varieties, nearby infected crops.",
+          "management": {
+            "cultural": "Use ToLCV-resistant/tolerant varieties (Arka Rakshak, Arka Samrat). Use nylon net nurseries (40 mesh). Remove and destroy infected plants immediately. Avoid tomato after tomato.",
+            "chemical": "Control whitefly vector. Spray Imidacloprid 17.8 SL @ 0.3 mL/L or Diafenthiuron 50WP @ 1.2g/L. Install yellow sticky traps.",
+            "biological": "Release Encarsia formosa against whitefly in protected cultivation."
+          },
+          "sources": ["ICAR-IIHR Bengaluru", "ICAR-IIVR Varanasi"]
+        }
+      ],
+      "pests": [
+        {
+          "id": "pest_007",
+          "name": "Fruit Borer (Tomato Fruit Borer)",
+          "name_hi": "फल छेदक",
+          "scientific_name": "Helicoverpa armigera",
+          "damage_symptoms": "Larvae bore circular holes into fruits and feed inside. Fruit drops or becomes unmarketable. A single larva can damage multiple fruits.",
+          "favorable_conditions": "Warm weather, late planting, no pheromone monitoring, absence of natural enemies.",
+          "management": {
+            "cultural": "Install pheromone traps @ 5/hectare for monitoring. Handpick and destroy damaged fruits. Intercrop with marigold as trap crop. Erect bird perches.",
+            "chemical": "Spray Emamectin benzoate 5 SG @ 0.4g/L or Spinosad 45 SC @ 0.3 mL/L when ETL is reached.",
+            "biological": "Release Trichogramma pretiosum. Spray HaNPV @ 250 LE/hectare. Spray Bt (Bacillus thuringiensis) @ 1g/L."
+          },
+          "economic_threshold": "1 larva per plant or 5% damaged fruits.",
+          "sources": ["ICAR-IIVR Varanasi", "TNAU Agritech Portal"]
+        },
+        {
+          "id": "pest_008",
+          "name": "Whitefly",
+          "name_hi": "सफेद मक्खी",
+          "scientific_name": "Bemisia tabaci",
+          "damage_symptoms": "Suck plant sap causing leaf yellowing and weakening. Secrete honeydew promoting sooty mould on leaves. Most importantly, transmit Tomato Leaf Curl Virus (ToLCV).",
+          "favorable_conditions": "Dry warm weather, continuous cropping of tomato/other solanaceous crops, absence of natural enemies.",
+          "management": {
+            "cultural": "Use reflective mulches. Install yellow sticky traps @ 12/hectare. Remove weed hosts. Use 40-mesh nylon net nursery.",
+            "chemical": "Spray Spiromesifen 22.9 SC @ 0.7 mL/L or Pyriproxyfen 10 EC @ 1 mL/L against immature stages. Rotate with Diafenthiuron.",
+            "biological": "Release Encarsia formosa or Chrysoperla carnea. Spray neem oil 3000 ppm @ 2 mL/L."
+          },
+          "economic_threshold": "5–10 adults per top three leaves.",
+          "sources": ["ICAR-NBAIR Bengaluru", "ICAR-IIHR Bengaluru"]
+        }
+      ],
+      "yield_potential_tonnes_per_hectare": "50–80 (hybrid, well-managed), 25–40 (open pollinated)",
+      "sources": ["ICAR-Indian Institute of Vegetable Research (IIVR), Varanasi", "ICAR-Indian Institute of Horticultural Research (IIHR), Bengaluru", "TNAU Agritech Portal"]
+    },
+
+    {
+      "id": "crop_005",
+      "name": "Chickpea (Gram)",
+      "name_hi": "चना",
+      "scientific_name": "Cicer arietinum",
+      "category": "pulse",
+      "season": ["rabi"],
+      "sowing_months": ["October", "November"],
+      "harvesting_months": ["February", "March"],
+      "major_states": ["Madhya Pradesh", "Rajasthan", "Maharashtra", "Uttar Pradesh", "Andhra Pradesh", "Karnataka"],
+      "soil_type": "Well-drained sandy loam to clay loam. Does not tolerate waterlogging.",
+      "soil_ph": "6.0–7.5",
+      "temperature_range_celsius": "15–30 (optimal 24–30 for germination)",
+      "water_requirement_mm": "300–400 (mostly rainfed on conserved moisture)",
+      "cultivation_practices": {
+        "land_preparation": "Plough once with mould board plough followed by 2–3 cultivator operations. Ensure fine tilth and weed-free field.",
+        "seed_rate_kg_per_hectare": "75–80 (desi), 100–120 (kabuli)",
+        "seed_treatment": "Treat with Carboxin + Thiram @ 2g/kg for wilt. Then treat with Rhizobium and PSB biofertilizer @ 200g each for 10 kg seed (after chemical treatment dries).",
+        "sowing_method": "Line sowing by seed drill at 30 cm × 10 cm spacing. Depth: 5–8 cm.",
+        "intercropping": "Chickpea + linseed (6:2), chickpea + mustard (6:2) are common intercropping systems."
+      },
+      "fertilizer_recommendations": {
+        "nitrogen_kg_per_hectare": 20,
+        "phosphorus_kg_per_hectare": 40,
+        "potassium_kg_per_hectare": 20,
+        "application_schedule": "Apply full dose at sowing as basal. Being a legume, chickpea fixes atmospheric nitrogen through Rhizobium symbiosis, so nitrogen requirement is low.",
+        "micronutrients": "Apply Sulphur 20 kg/ha where deficient. Soil application of Zinc Sulphate 25 kg/ha if needed.",
+        "organic_manure": "Apply 5 tonnes FYM per hectare."
+      },
+      "irrigation": {
+        "method": "Sprinkler or flood irrigation (light irrigations)",
+        "critical_stages": ["Pre-sowing (if moisture is insufficient)", "Branching (35–40 DAS)", "Pod development (60–70 DAS)"],
+        "schedule": "Generally rainfed. If irrigation available, 1–2 light irrigations at critical stages. Excess irrigation promotes vegetative growth at the expense of yield.",
+        "note": "Avoid heavy irrigation. Chickpea is very sensitive to waterlogging."
+      },
+      "diseases": [
+        {
+          "id": "disease_010",
+          "name": "Fusarium Wilt",
+          "name_hi": "उकठा / म्लानि",
+          "causal_organism": "Fusarium oxysporum f.sp. ciceri",
+          "symptoms": "Drooping and yellowing of leaves. Plants wilt partially or completely. Internal discoloration of vascular tissue (brown or black when stem is split). Seedling wilt and late wilt (at flowering/podding) are common.",
+          "favorable_conditions": "Light sandy soils, soil temperature 25–30°C, moisture stress followed by irrigation, continuous chickpea cultivation.",
+          "management": {
+            "cultural": "Use wilt-resistant varieties (JG 16, JG 63, Vijay, WR 315, KWR 108). Crop rotation with cereals for 3–4 years. Deep summer ploughing. Avoid moisture stress.",
+            "chemical": "Seed treatment with Carbendazim 50 WP @ 2g/kg or Carboxin + Thiram @ 2g/kg. Soil application of T. viride-enriched FYM.",
+            "biological": "Seed treatment with Trichoderma viride @ 4g/kg. Soil application of Trichoderma-enriched FYM @ 2.5 kg/ha."
+          },
+          "sources": ["ICAR-IIPR Kanpur", "JNKVV Jabalpur", "ICRISAT"]
+        },
+        {
+          "id": "disease_011",
+          "name": "Ascochyta Blight",
+          "name_hi": "एस्कोकाइटा अंगमारी",
+          "causal_organism": "Ascochyta rabiei",
+          "symptoms": "Circular to elongated lesions with dark brown margins on leaves and stems. Concentric rings with pycnidia on lesions. Stem breakage at lesion points. Pod infection leads to shrivelled seeds.",
+          "favorable_conditions": "Cool (15–25°C), wet and cloudy weather. Continuous rainfall. Dense planting.",
+          "management": {
+            "cultural": "Use tolerant varieties. Avoid dense planting. Timely sowing. Deep burial of crop residues. Use disease-free seed.",
+            "chemical": "Spray Mancozeb 75 WP @ 2.5g/L or Chlorothalonil 75 WP @ 2g/L at disease onset. Seed treatment with Thiram + Carbendazim.",
+            "biological": "Seed treatment with Trichoderma viride @ 4g/kg."
+          },
+          "sources": ["ICAR-IIPR Kanpur", "ICRISAT"]
+        }
+      ],
+      "pests": [
+        {
+          "id": "pest_009",
+          "name": "Pod Borer (Gram Pod Borer)",
+          "name_hi": "फली छेदक",
+          "scientific_name": "Helicoverpa armigera",
+          "damage_symptoms": "Larvae bore into developing pods and feed on seeds. Circular holes on pods. A single larva can damage 30–40 pods. Most destructive pest of chickpea.",
+          "favorable_conditions": "Warm weather at podding stage, late sown crop, monoculture, absence of natural enemies.",
+          "management": {
+            "cultural": "Use pheromone traps for monitoring (5/ha). Grow trap crops (marigold border rows). Erect bird perches (50/ha). Intercrop with coriander or linseed.",
+            "chemical": "Spray Emamectin benzoate 5 SG @ 0.4g/L or Indoxacarb 14.5 SC @ 0.75 mL/L when ETL is reached. Start sprays at 50% podding stage.",
+            "biological": "Release Trichogramma chilonis @ 1.5 lakh per hectare. Spray HaNPV @ 250 LE/ha. Apply Bt (Bacillus thuringiensis) @ 1g/L."
+          },
+          "economic_threshold": "1–2 larvae per metre row length.",
+          "sources": ["ICAR-IIPR Kanpur", "ICRISAT", "IGKV Raipur"]
+        }
+      ],
+      "yield_potential_tonnes_per_hectare": "1.5–2.5 (irrigated), 0.8–1.2 (rainfed)",
+      "sources": ["ICAR-Indian Institute of Pulses Research (IIPR), Kanpur", "ICRISAT, Hyderabad", "Directorate of Pulses Development, Bhopal"]
+    },
+
+    {
+      "id": "crop_006",
+      "name": "Sugarcane",
+      "name_hi": "गन्ना",
+      "scientific_name": "Saccharum officinarum",
+      "category": "cash_crop",
+      "season": ["annual"],
+      "sowing_months": ["October-November (autumn)", "February-March (spring)"],
+      "harvesting_months": ["November-April (10–12 months after planting)"],
+      "major_states": ["Uttar Pradesh", "Maharashtra", "Karnataka", "Tamil Nadu", "Bihar", "Gujarat"],
+      "soil_type": "Well-drained loamy to clay loam soil, deep and fertile",
+      "soil_ph": "6.5–7.5",
+      "temperature_range_celsius": "25–35 (optimal for growth)",
+      "water_requirement_mm": "1500–2500",
+      "cultivation_practices": {
+        "land_preparation": "Deep ploughing followed by 2–3 harrowings. Open furrows 75–90 cm apart, 20–25 cm deep.",
+        "seed_rate_tonnes_per_hectare": "6–8 tonnes setts per hectare (about 37,500 three-bud setts per hectare)",
+        "seed_treatment": "Treat setts with Carbendazim 50 WP @ 0.1% for 15 minutes. Treat with Trichoderma @ 10g/L for red rot prevention.",
+        "planting_method": "Flat bed or trench planting. Place 2–3 budded setts end to end in furrows. Cover with 5 cm soil.",
+        "ratoon_management": "After harvest, level the field, apply fertilizer, fill gaps, and irrigate. Manage up to 2–3 ratoon crops."
+      },
+      "fertilizer_recommendations": {
+        "nitrogen_kg_per_hectare": 250,
+        "phosphorus_kg_per_hectare": 60,
+        "potassium_kg_per_hectare": 60,
+        "application_schedule": "Apply full P, K, and 1/3 N at planting. Apply remaining N in 2 splits at 45 days and 90 days after planting. Earthing up after each N application.",
+        "micronutrients": "Apply Ferrous Sulphate 25 kg/ha for iron chlorosis. Zinc Sulphate 25 kg/ha where deficient.",
+        "organic_manure": "Apply 25 tonnes FYM or press mud (filter cake) per hectare."
+      },
+      "irrigation": {
+        "method": "Furrow irrigation or drip irrigation (sub-surface drip ideal)",
+        "critical_stages": ["Germination", "Tillering", "Grand growth phase (60–270 days)", "Maturity (reduce irrigation)"],
+        "schedule": "Irrigate every 7–10 days in summer, 15–20 days in winter. 30–35 irrigations per crop cycle. Drip saves 30–40% water.",
+        "note": "Withhold irrigation 3–4 weeks before harvest to improve sucrose content."
+      },
+      "diseases": [
+        {
+          "id": "disease_012",
+          "name": "Red Rot",
+          "name_hi": "लाल सड़न",
+          "causal_organism": "Colletotrichum falcatum",
+          "symptoms": "Internal reddish discoloration of stem tissue with white patches running across the red area. Drying and withering of the crown — third and fourth leaves dry from tip. Split open cane shows alternate red and white patches. Sour smell from infected tissue.",
+          "favorable_conditions": "Waterlogging, susceptible varieties, infected seed material, humid weather.",
+          "management": {
+            "cultural": "Use resistant varieties (CoJ 64, Co 0238 in some areas). Use disease-free seed material from certified nurseries. Remove and destroy infected clumps. Avoid ratooning of infected fields. Hot water treatment of setts at 50°C for 2 hours.",
+            "chemical": "Soak setts in Carbendazim 50 WP @ 0.1% for 15 minutes. No effective in-field chemical control.",
+            "biological": "Treat setts with Trichoderma viride @ 10g/L."
+          },
+          "sources": ["ICAR-Indian Institute of Sugarcane Research (IISR), Lucknow", "ICAR-Sugarcane Breeding Institute (SBI), Coimbatore"]
+        }
+      ],
+      "pests": [
+        {
+          "id": "pest_010",
+          "name": "Early Shoot Borer",
+          "name_hi": "अगेती तना छेदक",
+          "scientific_name": "Chilo infuscatellus",
+          "damage_symptoms": "Larvae bore into young shoots causing 'dead heart' — central spindle dries and can be pulled out easily. Bore holes with frass in young canes.",
+          "favorable_conditions": "March–June (summer months), drought stress, delayed earthing up.",
+          "management": {
+            "cultural": "Remove and destroy dead hearts. Detrashing lower dry leaves. Timely earthing up. Avoid drought stress.",
+            "chemical": "Apply Fipronil 0.3 GR @ 30 kg/ha in furrows at planting. Spray Chlorantraniliprole 18.5 SC @ 0.3 mL/L on the crop.",
+            "biological": "Release Trichogramma chilonis @ 50,000 per hectare at weekly intervals from 30–90 DAP."
+          },
+          "economic_threshold": "15–16% dead hearts.",
+          "sources": ["ICAR-IISR Lucknow", "ICAR-SBI Coimbatore"]
+        }
+      ],
+      "yield_potential_tonnes_per_hectare": "80–120 (plant crop), 60–80 (ratoon)",
+      "sources": ["ICAR-Indian Institute of Sugarcane Research (IISR), Lucknow", "ICAR-Sugarcane Breeding Institute (SBI), Coimbatore", "Indian Sugar Mills Association"]
+    },
+
+    {
+      "id": "crop_007",
+      "name": "Maize (Corn)",
+      "name_hi": "मक्का",
+      "scientific_name": "Zea mays",
+      "category": "cereal",
+      "season": ["kharif", "rabi", "spring"],
+      "sowing_months": ["June-July (kharif)", "October-November (rabi)", "January-February (spring)"],
+      "harvesting_months": ["Depends on season — 90–120 days after sowing"],
+      "major_states": ["Karnataka", "Madhya Pradesh", "Bihar", "Tamil Nadu", "Andhra Pradesh", "Rajasthan", "Maharashtra"],
+      "soil_type": "Well-drained sandy loam to clay loam, deep fertile soil",
+      "soil_ph": "5.5–7.5",
+      "temperature_range_celsius": "25–33 (optimal)",
+      "water_requirement_mm": "500–800",
+      "cultivation_practices": {
+        "land_preparation": "Plough 2–3 times with cultivator. Form ridges and furrows at 60–75 cm spacing.",
+        "seed_rate_kg_per_hectare": "20–25",
+        "seed_treatment": "Treat seeds with Thiram @ 3g/kg. For stem borer areas, use Cyantraniliprole seed treatment.",
+        "sowing_method": "Dibble or drill on ridges at 60–75 cm × 20–25 cm spacing. Depth: 5–7 cm.",
+        "thinning": "Thin to one plant per hill at 10–15 DAS."
+      },
+      "fertilizer_recommendations": {
+        "nitrogen_kg_per_hectare": 120,
+        "phosphorus_kg_per_hectare": 60,
+        "potassium_kg_per_hectare": 40,
+        "application_schedule": "Apply full P, K, and 1/3 N at basal. Apply 1/3 N at knee-high stage (30 DAS) and 1/3 N at tasseling (55 DAS). Earthing up after each N top-dressing.",
+        "micronutrients": "Apply Zinc Sulphate 25 kg/ha as basal in zinc-deficient soils. Foliar spray of 0.5% Zinc Sulphate if deficiency appears.",
+        "organic_manure": "Apply 10 tonnes FYM per hectare."
+      },
+      "irrigation": {
+        "method": "Furrow or sprinkler irrigation",
+        "critical_stages": ["Knee-high (30 DAS)", "Tasseling / silking (55–65 DAS)", "Grain filling (80–90 DAS)"],
+        "schedule": "4–6 irrigations for rabi and spring maize. Kharif maize is largely rainfed. Most critical stage is tasseling-silking — moisture stress here can reduce yield by 50%.",
+        "note": "Ensure good drainage. Maize is sensitive to waterlogging."
+      },
+      "diseases": [
+        {
+          "id": "disease_013",
+          "name": "Turcicum Leaf Blight (Northern Corn Leaf Blight)",
+          "name_hi": "टर्सिकम पत्ती झुलसा",
+          "causal_organism": "Exserohilum turcicum",
+          "symptoms": "Long, elliptical, grey-green to tan lesions (2.5–15 cm) on leaves. Lesions start on lower leaves and progress upward. Severe infection causes premature drying and poor grain filling.",
+          "favorable_conditions": "Moderate temperatures (18–27°C), high humidity, heavy dew, continuous maize cropping.",
+          "management": {
+            "cultural": "Use resistant hybrids. Crop rotation with non-host crops. Destroy crop residue.",
+            "chemical": "Spray Mancozeb 75 WP @ 2.5g/L or Propiconazole 25 EC @ 1 mL/L at disease onset.",
+            "biological": "Not well established."
+          },
+          "sources": ["ICAR-Indian Institute of Maize Research (IIMR), Ludhiana", "DMR/IIMR Hyderabad"]
+        }
+      ],
+      "pests": [
+        {
+          "id": "pest_011",
+          "name": "Fall Armyworm",
+          "name_hi": "फॉल सैनिक कीट",
+          "scientific_name": "Spodoptera frugiperda",
+          "damage_symptoms": "Larvae feed in the whorl, producing ragged holes and windowpane-like damage. Extensive frass in the whorl. Severe defoliation. Can attack ears directly. Characteristic inverted 'Y' on larval head.",
+          "favorable_conditions": "Warm and humid conditions, continuous maize cultivation, lack of early detection.",
+          "management": {
+            "cultural": "Early detection using pheromone traps (5/ha). Intercrop maize with pulses. Handpick egg masses and early-instar larvae. Apply sand + lime (9:1) into whorls.",
+            "chemical": "Spray Emamectin benzoate 5 SG @ 0.4g/L or Spinetoram 11.7 SC @ 0.5 mL/L directly into the whorl. Chlorantraniliprole 18.5 SC @ 0.3 mL/L is also effective.",
+            "biological": "Release Trichogramma pretiosum. Spray SpexNPV or Metarhizium rileyi (Nomuraea rileyi). Apply Bt @ 1g/L."
+          },
+          "economic_threshold": "5–10% damage on whorl leaves or 1 larva per plant.",
+          "sources": ["ICAR-IIMR Ludhiana", "ICAR-NBAIR Bengaluru", "CIMMYT"]
+        }
+      ],
+      "yield_potential_tonnes_per_hectare": "6–10 (hybrid irrigated), 3–5 (rainfed)",
+      "sources": ["ICAR-Indian Institute of Maize Research (IIMR), Ludhiana", "Directorate of Maize Research, New Delhi"]
+    },
+
+    {
+      "id": "crop_008",
+      "name": "Groundnut (Peanut)",
+      "name_hi": "मूँगफली",
+      "scientific_name": "Arachis hypogaea",
+      "category": "oilseed",
+      "season": ["kharif", "rabi", "summer"],
+      "sowing_months": ["June-July (kharif)", "November (rabi)", "January-February (summer)"],
+      "harvesting_months": ["September-October (kharif)", "March-April (rabi/summer)"],
+      "major_states": ["Gujarat", "Rajasthan", "Andhra Pradesh", "Tamil Nadu", "Karnataka", "Madhya Pradesh"],
+      "soil_type": "Well-drained sandy loam, light-textured soil",
+      "soil_ph": "6.0–7.0",
+      "temperature_range_celsius": "25–30 (optimal)",
+      "water_requirement_mm": "500–600",
+      "cultivation_practices": {
+        "land_preparation": "Deep ploughing once followed by 2–3 cultivator operations. Add gypsum 250 kg/ha at last ploughing.",
+        "seed_rate_kg_per_hectare": "100–120 (bunch types), 80–100 (spreading types)",
+        "seed_treatment": "Treat with Mancozeb @ 3g/kg + Thiram @ 2g/kg for Tikka leaf spot and stem rot. Then treat with Rhizobium @ 200g per 10 kg seed.",
+        "sowing_method": "Sow in lines at 30 × 10 cm (bunch) or 45 × 15 cm (spreading). Depth: 5 cm.",
+        "earthing_up": "Earthing up at 35–40 DAS (peg penetration stage) is critical for pod development."
+      },
+      "fertilizer_recommendations": {
+        "nitrogen_kg_per_hectare": 20,
+        "phosphorus_kg_per_hectare": 40,
+        "potassium_kg_per_hectare": 40,
+        "application_schedule": "Apply full dose as basal at sowing. Apply Gypsum 250 kg/ha at 35–40 DAS for calcium and sulphur supply to developing pods.",
+        "micronutrients": "Apply Borax 10 kg/ha. Foliar spray of Ferrous Sulphate 0.5% for iron chlorosis on calcareous soils.",
+        "organic_manure": "Apply 5 tonnes FYM per hectare."
+      },
+      "irrigation": {
+        "method": "Sprinkler or furrow irrigation. Drip is also suitable.",
+        "critical_stages": ["Flowering (30–35 DAS)", "Peg penetration (40–50 DAS)", "Pod development (60–80 DAS)"],
+        "schedule": "Kharif crop is mostly rainfed. Summer/rabi crop needs 8–10 irrigations. Avoid waterlogging.",
+        "note": "Stop irrigation 10–15 days before harvest for easy uprooting."
+      },
+      "diseases": [
+        {
+          "id": "disease_014",
+          "name": "Tikka Leaf Spot (Early and Late Leaf Spot)",
+          "name_hi": "टिक्का पत्ती धब्बा",
+          "causal_organism": "Cercospora arachidicola (early), Cercosporidium personatum (late)",
+          "symptoms": "Early leaf spot: circular dark brown spots with yellow halo on upper leaf surface. Late leaf spot: near-black spots, more on lower leaf surface. Severe defoliation in susceptible varieties.",
+          "favorable_conditions": "Warm (25–30°C), humid weather, continuous cropping, dense planting.",
+          "management": {
+            "cultural": "Use resistant varieties (ICGV 86590, TG 37A). Crop rotation. Remove and destroy crop debris.",
+            "chemical": "Spray Mancozeb 75 WP @ 2.5g/L or Chlorothalonil 75 WP @ 2g/L starting at 30 DAS, repeat at 15-day intervals (3–4 sprays).",
+            "biological": "Apply Trichoderma viride as seed and soil treatment."
+          },
+          "sources": ["ICAR-Directorate of Groundnut Research (DGR), Junagadh", "ICRISAT"]
+        }
+      ],
+      "pests": [
+        {
+          "id": "pest_012",
+          "name": "Leaf Miner",
+          "name_hi": "पत्ती सुरंग कीट",
+          "scientific_name": "Aproaerema modicella",
+          "damage_symptoms": "Larvae mine into leaflets, web them together, and feed from inside. Folded and brown leaflets. Severe defoliation reduces photosynthesis and yield.",
+          "favorable_conditions": "Dry spells during kharif, late-sown crop, no natural enemies.",
+          "management": {
+            "cultural": "Early sowing. Intercrop with pearl millet or sorghum. Use light traps for moth monitoring.",
+            "chemical": "Spray Profenophos 50 EC @ 2 mL/L or Quinalphos 25 EC @ 2 mL/L when ETL is reached.",
+            "biological": "Conserve natural enemies (Bracon hebetor, Goniozus sp.). Spray neem oil 3000 ppm @ 2 mL/L."
+          },
+          "economic_threshold": "2–3 larvae per plant or 50% leaflet damage.",
+          "sources": ["ICAR-DGR Junagadh", "ICRISAT"]
+        }
+      ],
+      "yield_potential_tonnes_per_hectare": "2–3 (pod yield, irrigated), 1–1.5 (rainfed)",
+      "sources": ["ICAR-Directorate of Groundnut Research (DGR), Junagadh", "ICRISAT Hyderabad"]
+    }
+  ],
+
+  "soil_management": [
+    {
+      "id": "soil_001",
+      "topic": "Soil Testing",
+      "name_hi": "मृदा परीक्षण",
+      "description": "Soil testing helps farmers understand the nutrient status and health of their soil, enabling them to apply the right amount of fertilizers and amendments.",
+      "recommended_practice": "Test soil every 2–3 years or before each cropping season. Collect soil samples from 15–20 spots in the field at 15 cm depth. Mix them, take a composite sample of about 500g, and send it to the nearest Soil Testing Laboratory.",
+      "parameters_tested": ["pH", "EC (Electrical Conductivity)", "Organic Carbon", "Available Nitrogen (N)", "Available Phosphorus (P)", "Available Potassium (K)", "Micronutrients (Zn, Fe, Cu, Mn, B)"],
+      "where_to_test": "Government Soil Testing Laboratories are available at district level. Farmers can also use Soil Health Cards issued under the Soil Health Card Scheme.",
+      "sources": ["Soil Health Card Portal (soilhealth.dac.gov.in)", "ICAR-Indian Institute of Soil Science, Bhopal"]
+    },
+    {
+      "id": "soil_002",
+      "topic": "Organic Matter Improvement",
+      "name_hi": "जैविक पदार्थ सुधार",
+      "description": "Maintaining and improving soil organic matter is essential for soil fertility, water retention, and microbial activity.",
+      "recommended_practice": "Apply well-decomposed FYM (10–12 tonnes/ha) or compost or vermicompost (5 tonnes/ha). Incorporate green manure crops like dhaincha (Sesbania aculeata) or sunhemp before the main crop. Retain crop residues on the surface (conservation agriculture). Avoid burning stubble.",
+      "benefits": ["Improves soil structure and water holding capacity", "Provides slow-release nutrients", "Promotes beneficial soil microorganisms", "Reduces erosion"],
+      "sources": ["ICAR-IISS Bhopal", "ICAR-CRIDA Hyderabad"]
+    }
+  ],
+
+  "government_schemes": [
+    {
+      "id": "scheme_001",
+      "name": "PM-Kisan (Pradhan Mantri Kisan Samman Nidhi)",
+      "name_hi": "पीएम-किसान (प्रधानमंत्री किसान सम्मान निधि)",
+      "description": "Direct income support of ₹6,000 per year to eligible farmer families in three equal instalments of ₹2,000 each.",
+      "eligibility": "All landholding farmer families (subject to exclusion criteria for higher income categories).",
+      "how_to_apply": "Apply through Common Service Centre (CSC) or village-level Patwari/panchayat office. Online registration at pmkisan.gov.in.",
+      "website": "https://pmkisan.gov.in",
+      "sources": ["Ministry of Agriculture & Farmers Welfare, Government of India"]
+    },
+    {
+      "id": "scheme_002",
+      "name": "PM Fasal Bima Yojana (PMFBY)",
+      "name_hi": "प्रधानमंत्री फसल बीमा योजना",
+      "description": "Crop insurance scheme to protect farmers against crop loss due to natural calamities, pests, and diseases. Premium: 2% for kharif, 1.5% for rabi, 5% for horticulture and commercial crops.",
+      "eligibility": "All farmers including sharecroppers and tenant farmers. Voluntary for loanee farmers from Kharif 2020 onwards.",
+      "how_to_apply": "Apply through bank (if loanee farmer), Common Service Centre (CSC), or PMFBY portal. Enrolment within cut-off dates for each season.",
+      "website": "https://pmfby.gov.in",
+      "sources": ["Ministry of Agriculture & Farmers Welfare, Government of India"]
+    },
+    {
+      "id": "scheme_003",
+      "name": "Soil Health Card Scheme",
+      "name_hi": "मृदा स्वास्थ्य कार्ड योजना",
+      "description": "Issues Soil Health Cards to farmers which carry crop-wise fertilizer recommendations based on soil nutrient status. Cards issued every 2 years.",
+      "eligibility": "All farmers.",
+      "how_to_apply": "Register at local agriculture office or Soil Health Card portal. Soil samples are collected by government agencies.",
+      "website": "https://soilhealth.dac.gov.in",
+      "sources": ["Department of Agriculture & Cooperation, Ministry of Agriculture"]
+    },
+    {
+      "id": "scheme_004",
+      "name": "Kisan Credit Card (KCC)",
+      "name_hi": "किसान क्रेडिट कार्ड",
+      "description": "Provides farmers with timely credit for cultivation expenses, post-harvest needs, and maintenance of farm assets. Short-term crop loans up to ₹3 lakh at 4% interest (with subvention).",
+      "eligibility": "All farmers — individual/joint borrowers who are owner cultivators, tenant farmers, sharecroppers, and SHGs or Joint Liability Groups of farmers.",
+      "how_to_apply": "Apply at any bank (commercial, cooperative, or RRB). PM-Kisan beneficiaries are proactively covered.",
+      "website": "Apply at nearest bank branch.",
+      "sources": ["Reserve Bank of India (RBI)", "NABARD"]
+    },
+    {
+      "id": "scheme_005",
+      "name": "Pradhan Mantri Krishi Sinchayee Yojana (PMKSY)",
+      "name_hi": "प्रधानमंत्री कृषि सिंचाई योजना",
+      "description": "Promotes 'Har Khet Ko Pani' (water to every field) and 'Per Drop More Crop' through micro-irrigation (drip and sprinkler). Subsidy: 55% for small/marginal farmers, 45% for others on micro-irrigation systems.",
+      "eligibility": "All farmers. Higher subsidy for small and marginal farmers, SC/ST categories.",
+      "how_to_apply": "Apply through State Agriculture Department or district horticulture office.",
+      "website": "https://pmksy.gov.in",
+      "sources": ["Ministry of Agriculture & Farmers Welfare", "Ministry of Jal Shakti"]
+    }
+  ],
+
+  "general_practices": [
+    {
+      "id": "practice_001",
+      "topic": "Integrated Pest Management (IPM)",
+      "name_hi": "समन्वित कीट प्रबंधन",
+      "description": "IPM is an approach that combines biological, cultural, physical, and chemical methods to manage pests with minimum harm to the environment, human health, and beneficial organisms.",
+      "key_principles": [
+        "Grow resistant or tolerant crop varieties.",
+        "Practice crop rotation to break pest cycles.",
+        "Maintain field hygiene — remove crop debris, weeds, and volunteer plants.",
+        "Conserve and augment natural enemies (predators, parasitoids, pathogens).",
+        "Use pheromone traps and light traps for pest monitoring.",
+        "Reach Economic Threshold Level (ETL) before using chemical pesticides.",
+        "If chemicals are needed, use recommended pesticides at recommended doses.",
+        "Rotate pesticides with different modes of action to prevent resistance."
+      ],
+      "sources": ["ICAR-National Bureau of Agricultural Insect Resources (NBAIR), Bengaluru", "National Centre for Integrated Pest Management (NCIPM), New Delhi"]
+    },
+    {
+      "id": "practice_002",
+      "topic": "Integrated Nutrient Management (INM)",
+      "name_hi": "समन्वित पोषक तत्व प्रबंधन",
+      "description": "INM optimizes soil nutrient supply by integrating chemical fertilizers, organic manures, biofertilizers, and crop residues for sustainable soil health and productivity.",
+      "key_principles": [
+        "Base fertilizer application on soil test recommendations.",
+        "Combine organic and inorganic nutrient sources.",
+        "Use biofertilizers (Rhizobium for legumes, Azotobacter for cereals, PSB for phosphorus) as seed or soil treatment.",
+        "Incorporate green manure before main crop sowing.",
+        "Apply micronutrients based on deficiency symptoms and soil test values.",
+        "Avoid burning crop residues — recycle them into the soil."
+      ],
+      "sources": ["ICAR-IISS Bhopal", "IARI New Delhi"]
+    },
+    {
+      "id": "practice_003",
+      "topic": "Seed Selection and Treatment",
+      "name_hi": "बीज चयन एवं उपचार",
+      "description": "Using quality seed of recommended varieties and treating seeds before sowing protects seedlings from seed-borne diseases and soil-borne pathogens.",
+      "recommended_practice": "Use certified seeds from authorized sources (State Seed Corporations, KVKs, NSC). Treat seeds with recommended fungicides, insecticides, and/or biofertilizers before sowing. Always dry treated seeds in shade before sowing.",
+      "general_seed_treatment_order": "1. Chemical fungicide → 2. Chemical insecticide (if needed) → 3. Biofertilizer (Rhizobium/Azotobacter/PSB) — apply biofertilizer last so chemicals do not kill beneficial microbes.",
+      "sources": ["National Seeds Corporation (NSC)", "ICAR-IARI New Delhi"]
+    }
+  ]
+}
