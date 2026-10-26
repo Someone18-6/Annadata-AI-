@@ -1,0 +1,15 @@
+# Annadata AI — Member 2 (Akshaj) Dependencies
+
+# Core
+pytest>=7.0
+
+# HTTP requests (required for Evon/OpenAI-compatible backends)
+requests>=2.28.0
+
+# Optional — Google Gemini backend
+# Uncomment if using Gemini instead of Evon
+# google-generativeai>=0.5.0
+
+# Optional — Google Cloud Translation API
+# Uncomment if using Google Translate for query translation
+# google-cloud-translate>=3.0.0
