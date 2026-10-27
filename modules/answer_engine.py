@@ -1,26 +1,3 @@
-"""
-answer_engine.py — Multilingual AI-Based Answer Generation Module for Annadata AI
-
-This module takes the farmer's question (in any of 22 supported languages),
-uses the knowledge retrieval module to find relevant information from an
-English knowledge base, and generates a clear, practical answer in the
-farmer's language.
-
-Pipeline:
-    1. Receive query in original language (e.g., Telugu from STT)
-    2. Detect language and translate to English for KB search
-    3. Search English knowledge base
-    4. Send English context + original query to LLM with language instruction
-    5. LLM returns answer in the original language
-
-Supported backends:
-    - Template-based (offline, always available)
-    - LLM-based: Evon (Gnani), Gemini, or any OpenAI-compatible endpoint
-
-Author : Member 2 – Knowledge Base & Answer Engine Developer
-Project: Annadata AI
-"""
-
 import os
 import textwrap
 from abc import ABC, abstractmethod
@@ -29,7 +6,6 @@ from typing import Any, Dict, List, Optional, Tuple
 from modules.knowledge_base import KnowledgeBase
 
 
-# ─── Constants ────────────────────────────────────────────────────────────────
 
 _MIN_SEARCH_SCORE = 0.5      # Minimum score to consider a result relevant
 _TOP_K = 5                    # Max entries to retrieve per query
@@ -61,7 +37,6 @@ SUPPORTED_LANGUAGES = {
     "bho": "Bhojpuri",
 }
 
-# System prompt for LLM-based generation
 _SYSTEM_PROMPT = textwrap.dedent("""\
     You are Annadata AI, an agricultural assistant for Indian farmers.
 
@@ -79,9 +54,6 @@ _SYSTEM_PROMPT = textwrap.dedent("""\
        diseases, or pests.
     9. CRITICAL: Respond in the SAME LANGUAGE as the farmer's question.
 """)
-
-
-# ─── LLM Backend Interface ────────────────────────────────────────────────────
 
 class LLMBackend(ABC):
     """Abstract base class for LLM backends (Evon, Gemini, OpenAI-compatible)."""
@@ -139,7 +111,6 @@ class EvonBackend(LLMBackend):
         """Generate answer using Evon LLM via OpenAI-compatible API."""
         import requests
 
-        # Build the full prompt with language instruction
         lang_name = SUPPORTED_LANGUAGES.get(language, language)
         full_user_prompt = textwrap.dedent(f"""\
             ## CONTEXT (Retrieved Agricultural Information)

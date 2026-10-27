@@ -1,30 +1,8 @@
-"""
-knowledge_base.py — Agricultural Knowledge Retrieval Module for Annadata AI
-
-This module loads the structured agricultural knowledge base (JSON) and provides
-search/retrieval functions so the answer engine can find information relevant
-to a farmer's question.
-
-Retrieval strategy
-──────────────────
-1. Keyword-based search (current): tokenises the query, removes stopwords,
-   stems loosely, and scores each knowledge-base entry by weighted keyword
-   overlap across its text fields.
-2. Semantic / RAG search (future enhancement): can be added by replacing
-   `search()` with a vector-similarity-based retriever.
-
-Author : Member 2 – Knowledge Base & Answer Engine Developer
-Project: Annadata AI
-"""
-
 import json
 import os
 import re
 from collections import defaultdict
 from typing import Any, Dict, List, Optional, Tuple
-
-
-# ─── Constants ────────────────────────────────────────────────────────────────
 
 _DEFAULT_KB_PATH = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
@@ -32,7 +10,6 @@ _DEFAULT_KB_PATH = os.path.join(
     "knowledge_base.json",
 )
 
-# Common English and Hindi stopwords that add noise to keyword matching
 _STOPWORDS = frozenset(
     {
         # English
@@ -58,7 +35,7 @@ _STOPWORDS = frozenset(
     }
 )
 
-# Field-level relevance weights for scoring
+
 _FIELD_WEIGHTS = {
     "name": 5.0,
     "name_hi": 5.0,
@@ -79,7 +56,6 @@ _FIELD_WEIGHTS = {
 }
 
 
-# ─── Core class ───────────────────────────────────────────────────────────────
 
 class KnowledgeBase:
     """Loads and searches the Annadata AI agricultural knowledge base."""
@@ -90,7 +66,6 @@ class KnowledgeBase:
         self._entries: List[Dict[str, Any]] = []
         self._loaded = False
 
-    # ── Loading ────────────────────────────────────────────────────────────
 
     def load(self) -> None:
         """Load and flatten the knowledge base JSON into searchable entries."""
@@ -99,32 +74,25 @@ class KnowledgeBase:
 
         self._entries = []
 
-        # Flatten crops + nested diseases and pests
         for crop in self._raw.get("crops", []):
-            # Crop-level entry
             self._entries.append(
                 self._build_crop_entry(crop)
             )
-            # Disease entries under this crop
             for disease in crop.get("diseases", []):
                 self._entries.append(
                     self._build_disease_entry(disease, crop)
                 )
-            # Pest entries under this crop
             for pest in crop.get("pests", []):
                 self._entries.append(
                     self._build_pest_entry(pest, crop)
                 )
 
-        # Soil management entries
         for item in self._raw.get("soil_management", []):
             self._entries.append(self._build_general_entry(item, "soil_management"))
 
-        # Government schemes
         for item in self._raw.get("government_schemes", []):
             self._entries.append(self._build_scheme_entry(item))
 
-        # General practices (IPM, INM, seed treatment …)
         for item in self._raw.get("general_practices", []):
             self._entries.append(self._build_general_entry(item, "general_practice"))
 
@@ -134,7 +102,6 @@ class KnowledgeBase:
         if not self._loaded:
             self.load()
 
-    # ── Entry builders ─────────────────────────────────────────────────────
 
     @staticmethod
     def _build_crop_entry(crop: dict) -> dict:
@@ -195,7 +162,6 @@ class KnowledgeBase:
             "sources": item.get("sources", []),
         }
 
-    # ── Search ─────────────────────────────────────────────────────────────
 
     def search(
         self,
@@ -204,27 +170,6 @@ class KnowledgeBase:
         min_score: float = 0.01,
         entry_type: Optional[str] = None,
     ) -> List[Dict[str, Any]]:
-        """
-        Search the knowledge base and return the top-k most relevant entries.
-
-        Parameters
-        ----------
-        query : str
-            The farmer's question or search terms.
-        top_k : int
-            Maximum number of results to return.
-        min_score : float
-            Minimum relevance score to include in results.
-        entry_type : str, optional
-            Filter results to a specific type
-            ('crop', 'disease', 'pest', 'government_scheme',
-             'soil_management', 'general_practice').
-
-        Returns
-        -------
-        list of dict
-            Each dict contains 'entry', 'score', and 'matched_keywords'.
-        """
         self._ensure_loaded()
 
         tokens = _tokenize(query)
@@ -240,7 +185,6 @@ class KnowledgeBase:
             if score >= min_score:
                 scored.append((score, matched, entry))
 
-        # Sort descending by score
         scored.sort(key=lambda x: x[0], reverse=True)
 
         results = []
@@ -257,17 +201,11 @@ class KnowledgeBase:
     def _score_entry(
         self, query_tokens: List[str], entry: Dict[str, Any]
     ) -> Tuple[float, List[str]]:
-        """
-        Score an entry against query tokens.
 
-        Uses weighted keyword matching across the entry's original data fields
-        plus a full-text fallback on the flattened searchable_text.
-        """
         total_score = 0.0
         matched_keywords: set = set()
         data = entry.get("data", {})
 
-        # Field-level weighted matching
         for field, weight in _FIELD_WEIGHTS.items():
             field_text = _extract_field_text(data, field)
             if not field_text:
@@ -278,24 +216,19 @@ class KnowledgeBase:
                     total_score += weight
                     matched_keywords.add(token)
 
-        # Full-text fallback on searchable_text
         full_text = entry.get("searchable_text", "").lower()
         for token in query_tokens:
             if token in full_text:
                 total_score += 1.0
                 matched_keywords.add(token)
 
-        # Normalise by number of query tokens so longer queries don't
-        # automatically outscore shorter ones
         if query_tokens:
             total_score = total_score / len(query_tokens)
 
         return total_score, sorted(matched_keywords)
 
-    # ── Convenience accessors ──────────────────────────────────────────────
 
     def get_crop_names(self) -> List[str]:
-        """Return a list of all crop names in the knowledge base."""
         self._ensure_loaded()
         return [
             e["crop_name"]
@@ -304,12 +237,10 @@ class KnowledgeBase:
         ]
 
     def get_all_entries(self) -> List[Dict[str, Any]]:
-        """Return every entry (useful for debugging or export)."""
         self._ensure_loaded()
         return list(self._entries)
 
     def get_entry_by_id(self, entry_id: str) -> Optional[Dict[str, Any]]:
-        """Look up an entry by its unique id field."""
         self._ensure_loaded()
         for entry in self._entries:
             if entry.get("id") == entry_id:
@@ -317,17 +248,14 @@ class KnowledgeBase:
         return None
 
     def get_metadata(self) -> Dict[str, Any]:
-        """Return the knowledge-base metadata block."""
         self._ensure_loaded()
         return dict(self._raw.get("metadata", {}))
 
     def get_schemes(self) -> List[Dict[str, Any]]:
-        """Return all government-scheme entries."""
         self._ensure_loaded()
         return [e for e in self._entries if e["type"] == "government_scheme"]
 
     def get_diseases_for_crop(self, crop_name: str) -> List[Dict[str, Any]]:
-        """Return all disease entries for a given crop name."""
         self._ensure_loaded()
         crop_lower = crop_name.strip().lower()
         return [
@@ -338,7 +266,6 @@ class KnowledgeBase:
         ]
 
     def get_pests_for_crop(self, crop_name: str) -> List[Dict[str, Any]]:
-        """Return all pest entries for a given crop name."""
         self._ensure_loaded()
         crop_lower = crop_name.strip().lower()
         return [
@@ -349,13 +276,8 @@ class KnowledgeBase:
         ]
 
 
-# ─── Helper functions (module-private) ────────────────────────────────────────
 
 def _tokenize(text: str) -> List[str]:
-    """
-    Tokenise text into lowercase keywords, removing stopwords and
-    very short tokens.
-    """
     text = text.lower()
     # Keep alphanumeric and some Hindi Unicode characters
     tokens = re.findall(r"[a-z0-9ऀ-ॿ]+", text)
@@ -363,10 +285,6 @@ def _tokenize(text: str) -> List[str]:
 
 
 def _flatten_to_text(obj: Any, exclude_keys: Optional[set] = None) -> str:
-    """
-    Recursively flatten a nested dict/list into a single space-separated
-    string of all its leaf string values, for full-text search.
-    """
     parts: list = []
     _flatten_recursive(obj, parts, exclude_keys or set())
     return " ".join(parts)
@@ -388,10 +306,6 @@ def _flatten_recursive(obj: Any, parts: list, exclude_keys: set) -> None:
 
 
 def _extract_field_text(data: dict, field: str) -> str:
-    """
-    Extract text from a field that may be a string, list, or nested dict.
-    Returns a single string or empty string.
-    """
     value = data.get(field)
     if value is None:
         return ""
@@ -403,8 +317,6 @@ def _extract_field_text(data: dict, field: str) -> str:
         return _flatten_to_text(value)
     return str(value)
 
-
-# ─── Quick smoke test when run as a script ────────────────────────────────────
 
 if __name__ == "__main__":
     kb = KnowledgeBase()
